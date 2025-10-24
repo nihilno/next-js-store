@@ -22,11 +22,11 @@ function HeroCarousel() {
           {carouselImages.map((image, index) => (
             <CarouselItem key={index}>
               <Card>
-                <CardContent className="p-2">
+                <CardContent className="p-2 select-none">
                   <Image
                     src={image}
                     alt="Hero"
-                    loading="eager"
+                    priority={index === 0}
                     className="h-96 w-full rounded-md object-cover"
                   />
                 </CardContent>

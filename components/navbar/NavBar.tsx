@@ -5,6 +5,7 @@ import DarkMode from "./DarkMode";
 import LinksDropdown from "./Dropdown";
 import Logo from "./Logo";
 import Search from "./Search";
+
 function Navbar() {
   return (
     <nav className="border-b">
@@ -22,4 +23,5 @@ function Navbar() {
     </nav>
   );
 }
+
 export default Navbar;
