@@ -113,10 +113,17 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    display: none;
   }
 
   html {
-    scrollbar-gutter: stable;
+    scrollbar-gutter: stable both-edges;
+    scroll-behavior: smooth;
   }
 
   body {

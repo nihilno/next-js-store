@@ -18,6 +18,8 @@ import { usePathname } from "next/navigation";
 
 function Dropdown() {
   const pathname = usePathname();
+  // const { user } = useUser();
+  // const isAdmin = user?.id === process.env.ADMIN_USER_ID;
 
   return (
     <DropdownMenu key={pathname} modal={false}>
@@ -42,13 +44,19 @@ function Dropdown() {
           </DropdownMenuItem>
         </SignedOut>
         <SignedIn>
-          {links.map((link) => (
-            <DropdownMenuItem key={link?.label}>
-              <Link href={link?.href} className="w-full px-2 py-1.5 capitalize">
-                {link?.label}
-              </Link>
-            </DropdownMenuItem>
-          ))}
+          {links.map((link) => {
+            // if (link.label === "dashboard" && !isAdmin) return null;
+            return (
+              <DropdownMenuItem key={link?.label}>
+                <Link
+                  href={link?.href}
+                  className="w-full px-2 py-1.5 capitalize"
+                >
+                  {link?.label}
+                </Link>
+              </DropdownMenuItem>
+            );
+          })}
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <SignOut />

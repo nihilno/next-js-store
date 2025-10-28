@@ -3,7 +3,7 @@ import { formatCurrency } from "@/lib/utils";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
-import FavoriteToggleButton from "./FavoriteToggleButton";
+import { LookUpButton } from "../form/Buttons";
 
 function ProductsList({ products }: { products: Product[] }) {
   return (
@@ -25,7 +25,7 @@ function ProductsList({ products }: { products: Product[] }) {
                       fill
                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                       priority
-                      className="w-full rounded object-cover"
+                      className="w-full rounded object-cover select-none"
                     />
                   </div>
                   <div className="flex flex-col gap-2 text-left">
@@ -42,10 +42,10 @@ function ProductsList({ products }: { products: Product[] }) {
                   </p>
                 </CardContent>
               </Card>
+              <div className="absolute right-8 bottom-8 z-50">
+                <LookUpButton />
+              </div>
             </Link>
-            <div className="absolute right-8 bottom-8 z-50">
-              <FavoriteToggleButton productId={productId} />
-            </div>
           </article>
         );
       })}

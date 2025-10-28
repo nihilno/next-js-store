@@ -3,7 +3,7 @@ import { formatCurrency } from "@/lib/utils";
 import { Product } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
-import FavoriteToggleButton from "./FavoriteToggleButton";
+import { LookUpButton } from "../form/Buttons";
 
 function ProductsGrid({ products }: { products: Product[] }) {
   return (
@@ -25,7 +25,7 @@ function ProductsGrid({ products }: { products: Product[] }) {
                       fill
                       sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
                       priority
-                      className="w-full transform rounded object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full transform rounded object-cover transition-transform duration-500 select-none group-hover:scale-110"
                     />
                   </div>
                   <div className="mt-4 text-center">
@@ -36,11 +36,10 @@ function ProductsGrid({ products }: { products: Product[] }) {
                   </div>
                 </CardContent>
               </Card>
+              <div className="absolute top-7 right-7 z-50">
+                <LookUpButton />
+              </div>
             </Link>
-
-            <div className="absolute top-7 right-7 z-50">
-              <FavoriteToggleButton productId={productId} />
-            </div>
           </article>
         );
       })}

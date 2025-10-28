@@ -1,12 +1,16 @@
-import { IoHeart } from "react-icons/io5";
-import { Button } from "../ui/button";
+import { CardSignInButton } from "@/components/form/Buttons";
+import { fetchFavoriteId } from "@/lib/actions";
+import { auth } from "@clerk/nextjs/server";
+import FavoriteToggleForm from "./FavoriteToggleForm";
 
-function FavoriteToggleButton({ productId }: { productId: string }) {
-  return (
-    <Button size="icon" variant="outline" className="cursor-pointer p-2">
-      <IoHeart />
-    </Button>
-  );
+export async function FavoriteToggleButton({
+  productId,
+}: {
+  productId: string;
+}) {
+  const { userId } = await auth();
+  if (!userId) return <CardSignInButton />;
+
+  const favoriteId = await fetchFavoriteId({ productId });
+  return <FavoriteToggleForm productId={productId} favoriteId={favoriteId} />;
 }
-
-export default FavoriteToggleButton;

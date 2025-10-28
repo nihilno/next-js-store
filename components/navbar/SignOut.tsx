@@ -5,9 +5,7 @@ import { toast } from "sonner";
 
 function SignOut() {
   function handleLogout() {
-    toast("Logout Successful", {
-      duration: 4000,
-    });
+    toast.success("Logout Successful");
   }
 
   return (

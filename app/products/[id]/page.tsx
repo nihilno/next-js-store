@@ -1,8 +1,8 @@
 import AddToCart from "@/components/product/AddToCart";
 import Breadcrumbs from "@/components/product/Breadcrumbs";
 import ProductRating from "@/components/product/ProductRating";
-import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
-import { fetchSingleProduct } from "@/lib/actions";
+import { FavoriteToggleButton } from "@/components/products/FavoriteToggleButton";
+import { fetchSingleProductAction } from "@/lib/actions";
 import { formatCurrency } from "@/lib/utils";
 import Image from "next/image";
 
@@ -12,7 +12,7 @@ export default async function Page({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const product = await fetchSingleProduct(id);
+  const product = await fetchSingleProductAction(id);
   const { name, image, company, description, price } = product;
   const dollarsAmount = formatCurrency(price);
 

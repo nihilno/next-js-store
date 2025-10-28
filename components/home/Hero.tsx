@@ -14,7 +14,7 @@ function Hero() {
           quaerat ipsum deserunt officia exercitationem! Qui reiciendis
           excepturi corporis fugiat et?
         </p>
-        <Button asChild size="lg" className="mt-10">
+        <Button asChild size="lg" motion="lift" className="mt-10">
           <Link href="/products" className="capitalize">
             Our products
           </Link>

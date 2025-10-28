@@ -6,6 +6,7 @@ import { ThemeProvider } from "./theme-provider";
 function Providers({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <Toaster />
       <ThemeProvider
         attribute="class"
         defaultTheme="system"
@@ -14,7 +15,6 @@ function Providers({ children }: { children: React.ReactNode }) {
       >
         {children}
       </ThemeProvider>
-      <Toaster />
     </>
   );
 }

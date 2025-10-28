@@ -4,7 +4,7 @@ import { Button } from "../ui/button";
 
 function Logo() {
   return (
-    <Button size="icon" asChild>
+    <Button size="icon" motion="lift" asChild>
       <Link href="/">
         <IoStorefront className="h-6 w-6" />
       </Link>
