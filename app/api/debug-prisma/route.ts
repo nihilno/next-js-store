@@ -1,11 +1,11 @@
-import db from "@/lib/db"; // Change this to your actual Prisma client import path
-import { NextResponse } from "next/server"; // Use 'next' if Pages Router
+import db from "@/lib/db"; // Update this path if needed
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
     const featured = await db.product.findMany({
       where: { featured: true },
-      select: { id: true, name: true, featured: true }, // Add more fields if needed
+      select: { id: true, name: true, featured: true },
     });
 
     const total = await db.product.count();
@@ -14,9 +14,20 @@ export async function GET() {
       featured,
       featuredCount: featured.length,
       totalCount: total,
-      connection: process.env.DATABASE_URL?.slice(0, 50) + "...", // Shows which DB it's using
+      connection: process.env.DATABASE_URL?.slice(0, 50) + "...",
+      message: "Prisma connected successfully!",
     });
-  } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    // Type-safe way to extract message
+    const message = error instanceof Error ? error.message : "Unknown error";
+
+    return NextResponse.json(
+      {
+        error: "Database query failed",
+        details: message,
+        connection: process.env.DATABASE_URL?.slice(0, 50) + "...",
+      },
+      { status: 500 },
+    );
   }
 }
