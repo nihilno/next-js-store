@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 import LoadingContainer from "@/components/global/LoadingContainer";
 import Featured from "@/components/home/Featured";
 import Hero from "@/components/home/Hero";
