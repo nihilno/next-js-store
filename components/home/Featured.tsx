@@ -12,6 +12,7 @@ async function Featured() {
         <EmptyList />
       </div>
     );
+
   return (
     <section className="pt-24">
       <SectionTitle text="Featured products" />
