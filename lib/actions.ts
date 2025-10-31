@@ -2,6 +2,7 @@
 
 import db from "@/lib/db";
 import { auth, currentUser } from "@clerk/nextjs/server";
+import { Cart } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import {
@@ -11,7 +12,6 @@ import {
   validateWithZodSchema,
 } from "./schemas";
 import { deleteImage, uploadImage } from "./supabase";
-import { Cart } from "@prisma/client";
 
 //******************************************************************
 // **************************** GET ROLES **************************
@@ -397,7 +397,10 @@ export async function fetchCartItems() {
   return cart?.numItemsInCart || 0;
 }
 
-export async function addToCartAction(prevState: unknown, formData: FormData) {
+export async function addToCartAction(
+  prevState: unknown,
+  formData: FormData,
+): Promise<{ message: string }> {
   const user = await getAuthUser();
 
   try {

@@ -1,5 +1,5 @@
-import Image from "next/image";
 import ArmchairImage from "@/public/images/armchair.png";
+import Image from "next/image";
 
 export default async function Page() {
   return (

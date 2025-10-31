@@ -4,9 +4,9 @@ import { ImageInputContainerProps } from "@/lib/types";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "../ui/button";
+import { SubmitButton } from "./Buttons";
 import FormContainer from "./FormContainer";
 import ImageInput from "./ImageInput";
-import { SubmitButton } from "./Buttons";
 
 function ImageInputContainer(props: ImageInputContainerProps) {
   const { image, name, action, text } = props;

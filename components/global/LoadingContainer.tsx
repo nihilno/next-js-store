@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "../ui/skeleton";
 import { cx } from "class-variance-authority";
+import { Skeleton } from "../ui/skeleton";
 
 function LoadingContainer({
   amount = 3,

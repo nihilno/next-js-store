@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
-import Rating from "./Rating";
 import Comment from "./Comment";
+import Rating from "./Rating";
 
 type ReviewCardProps = {
   reviewInfo: {
