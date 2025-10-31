@@ -30,11 +30,12 @@ export function SubmitButton({
       disabled={pending}
       className={cn("capitalize", className)}
       size={size}
+      motion="lift"
     >
       {pending ? (
         <>
           <IoReload className="mr-2 h-4 w-4 animate-spin" />
-          Please wait...
+          Processing...
         </>
       ) : (
         text
@@ -111,5 +112,15 @@ export function LookUpButton() {
     >
       <FaMagnifyingGlass />
     </Button>
+  );
+}
+
+export function ProductSignInButton({ label = "Sign in" }: { label?: string }) {
+  return (
+    <SignInButton mode="modal">
+      <Button type="button" className="mt-8 capitalize">
+        {label}
+      </Button>
+    </SignInButton>
   );
 }

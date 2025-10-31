@@ -1,3 +1,5 @@
+import { Prisma } from "@prisma/client";
+
 export type actionFunction = (
   prevState: unknown,
   formData: FormData,
@@ -28,3 +30,7 @@ export type ImageInputContainerProps = {
   text: string;
   children?: React.ReactNode;
 };
+
+export type CartItemWithProduct = Prisma.CartItemGetPayload<{
+  include: { product: true };
+}>;

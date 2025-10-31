@@ -1,6 +1,7 @@
 import { IconButton } from "@/components/form/Buttons";
 import FormContainer from "@/components/form/FormContainer";
 import EmptyList from "@/components/global/EmptyList";
+import SectionTitle from "@/components/global/SectionTitle";
 import {
   Table,
   TableBody,
@@ -26,6 +27,7 @@ export default async function Page() {
 
   return (
     <section>
+      <SectionTitle text="Products" border={false} />
       <Table>
         <TableCaption className="capitalize">
           Total products: {items.length}
